@@ -49,6 +49,24 @@ void drawHorizontalLine(int x1, int x2, int y)
     }
 }
 
+void drawVerticalLine(int x, int y1, int y2)
+{
+    int y;
+
+    for(y = y1; y <= y2; y++)
+    {
+        canvas[y][x] = '*';
+    }
+}
+
+void drawRectangle(int x, int y, int width, int height)
+{
+    drawHorizontalLine(x, x + width - 1, y);
+    drawHorizontalLine(x, x + width - 1, y + height - 1);
+
+    drawVerticalLine(x, y, y + height - 1);
+    drawVerticalLine(x + width - 1, y, y + height - 1);
+}
 
 
 int main()
@@ -56,7 +74,9 @@ int main()
     initializeCanvas();
 
     drawPoint(10, 5);
-    drawHorizontalLine(5, 20, 8);
+    drawHorizontalLine(2, 20, 12);
+    drawVerticalLine(25, 2, 15);
+    drawRectangle(5, 2, 12, 6);
 
     displayCanvas();
 
